@@ -1,0 +1,51 @@
+<html lang="en">
+<head>
+  <title>Traffic Analyzer</title>
+</head>
+<body>
+
+  <h1>Control Panel</h1>
+  <p id= 'short_msg'></p>
+  <p id= 'long_msg'></p>
+  <p id= 'visitor'></p>
+  <!--Paste here Firebase Web configration-->
+  <h2>LED Switch</h2>
+  <button class='button' id='LED_On' value=1 type='button'>On</button><button class='button' id='LED_Off' type='button'>Off</button>
+  <p id = 'LedStat'></p>
+  <hr>
+  <h2>Motion Sensor Switch</h2>
+  <button class='button' id='Motion_On' onclick="onMotion()" type='button'>On</button><button class='button' id='Motion_Off ' type='button'>Off</button>
+  <p id = 'SensorStat'></p>
+  <hr>
+  <h2>Reset Database</h2>
+  <button class='button' onclick="ResetData()">Reset</button>
+<script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBmn-xBgQa4dotgS5ifpqvCXRGFys2ARSc",
+    authDomain: "myproject-4fd8b.firebaseapp.com",
+    databaseURL: "https://myproject-4fd8b.firebaseio.com",
+    projectId: "myproject-4fd8b",
+    storageBucket: "myproject-4fd8b.appspot.com",
+    messagingSenderId: "453123785332"
+  };
+  firebase.initializeApp(config);
+
+  //Reset Data Function
+  function ResetData(){
+    const fb = firebase.database().ref()
+    var txt;
+    var r = confirm("Are you sure you want to reset your data?")
+    if (r == true) {
+      fb.child('motionSensorData').remove()
+      alert("Database has been reset.")
+    }
+  }
+</script>
+<script src="./firebaseWebApi.js"></script>
+
+
+
+</body>
+</html>
