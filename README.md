@@ -12,7 +12,10 @@ OUT: 'P9_12'
 Instruction to start the program: {
 1. start the beaglebone black, ensure it connects to the internet
 2. Plug in the device according to the pins
-3. open terminal and run the porgram ('Node index.js')
+3. Open firebase serve -p 5000 -o 192.168.7.2 to view the client side
+4. The old data can be retrieved from the firebase
+5. Duplicate another terminal and run 'node app.js' to push the data into the firebase
+6. A live data session will happen in the client side
 
 Contribution to this assignment
 1.  Chong Wei Onn
